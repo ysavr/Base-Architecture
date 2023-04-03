@@ -16,11 +16,11 @@ class MovieRepositoryImpl @Inject constructor(
     private val service: MovieApiService,
     private val dispatcher: DispatchersProvider
 ) : MovieRepository {
-    override suspend fun getDiscoverMovie(): Flow<Resource<List<MovieItemModel>>> {
+    override suspend fun getDiscoverMovie(page: Int): Flow<Resource<List<MovieItemModel>>> {
         return flow {
             try {
                 emit(Resource.Loading)
-                val response = service.getListMovie(Constant.API_KEY, Constant.LANGUAGE)
+                val response = service.getListMovie(Constant.API_KEY, Constant.LANGUAGE, page)
                 if (response.isSuccessful) {
                     val listData = response.body()?.results?.map {
                         it.toModel()

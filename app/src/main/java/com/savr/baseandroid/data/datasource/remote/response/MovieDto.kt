@@ -11,32 +11,32 @@ data class MovieDto(
 
 data class MovieItemDto(
     val id: Int,
-    val original_language: String,
-    val original_title: String,
-    val overview: String,
-    val popularity: Double,
-    val poster_path: String,
-    val release_date: String,
-    val title: String,
-    val video: Boolean,
-    val vote_average: Double,
-    val vote_count: Int,
-    val adult: Boolean,
-    val backdrop_path: String
+    val original_language: String? = null,
+    val original_title: String? = null,
+    val overview: String? = null,
+    val popularity: Double? = null,
+    val poster_path: String? = null,
+    val release_date: String? = null,
+    val title: String? = null,
+    val video: Boolean? = null,
+    val vote_average: Double? = null,
+    val vote_count: Int? = null,
+    val adult: Boolean? = null,
+    val backdrop_path: String? = null
 ) {
     fun toModel() = MovieItemModel(
         id,
-        original_language,
-        original_title,
-        overview,
-        popularity,
-        poster_path,
-        release_date,
-        title,
-        video,
-        vote_average,
-        vote_count,
-        adult,
-        backdrop_path
+        original_language ?: "",
+        original_title ?: "",
+        overview ?: "",
+        popularity ?: 0.0,
+        poster_path ?: "",
+        release_date ?: "",
+        title ?: "",
+        video ?: false,
+        vote_average ?: 0.0,
+        vote_count ?: 0,
+        adult ?: false,
+        backdrop_path ?: ""
     )
 }

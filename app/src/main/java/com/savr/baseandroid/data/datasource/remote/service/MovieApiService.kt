@@ -9,6 +9,7 @@ interface MovieApiService {
     @GET("discover/movie")
     suspend fun getListMovie(
         @Query("api_key") apiKey: String,
-        @Query("language") language: String
+        @Query("language") language: String,
+        @Query("page") page: Int
     ): Response<MovieDto>
 }
