@@ -2,7 +2,6 @@ package com.savr.baseandroid.presentation
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -34,7 +33,7 @@ class MovieAdapter : ListAdapter<MovieItemModel, RecyclerView.ViewHolder>(DiffCa
     }
 
     class LoadingViewHolder(binding: ItemLoadingBinding) : RecyclerView.ViewHolder(binding.root) {
-        var progressBar: ProgressBar = binding.progressBar
+        var progressBar = binding.shimmerViewPost
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
@@ -77,7 +76,7 @@ class MovieAdapter : ListAdapter<MovieItemModel, RecyclerView.ViewHolder>(DiffCa
                 }
             }
         } else if (holder is LoadingViewHolder) {
-            holder.progressBar.isIndeterminate = true
+            holder.progressBar.startShimmer()
         }
     }
 
