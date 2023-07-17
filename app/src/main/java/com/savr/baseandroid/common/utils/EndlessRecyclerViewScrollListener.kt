@@ -35,7 +35,7 @@ abstract class EndlessRecyclerViewScrollListener(
     }
 
     override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-        if (!recyclerView.canScrollVertically(1) && newState == 2){
+        if (!recyclerView.canScrollVertically(1)){
             loadNextPage(recyclerView)
         }
     }
